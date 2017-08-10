@@ -1,0 +1,3 @@
+[
+    { "keys": ["ctrl+super+v"], "command": "open_shell_ve" }
+]
