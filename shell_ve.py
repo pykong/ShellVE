@@ -78,6 +78,6 @@ def plugin_loaded():
     Listener()()
 
 
-class OpenShellCommand(sublime_plugin.WindowCommand):
+class OpenShellVeCommand(sublime_plugin.WindowCommand):
     def run(self):
         open_shell()
