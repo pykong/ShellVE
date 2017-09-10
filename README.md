@@ -2,15 +2,15 @@
 Sublime Text 3 plugin to automagically open TerminalView tab with a project's virtual environment already started.
 
 ## Why?
-I always liked how PyCharm linked a project with a perticular virtual environment. You, easily set it up once. Then you never need to remember the correct virtual environment to start in you shell.  One project, one virtual environment. And you project automatically runs with the correct one.
-The Virtualenv plugin for Sublime Text makes a similar linkage possible, but it is only for build systems. If you need more control, e.g. when wnating to install libs to your VE, you are going to need a shell.
+I always liked how PyCharm linked a project with a perticular virtual environment. You, easily set it up once. Then you never need to remember the correct virtual environment to start in you shell. One project, one virtual environment. And you project automatically runs with the correct one.
+The Virtualenv plugin for Sublime Text makes a similar linkage possible, but it is only for build systems. If you need more control, e.g. when wanting to install libs to your VE, you are going to need a shell.
 ShellVE fills that gap for you.
 
 ## Installation
 Do it via PackageControl. You likely know how to. (Else see [PackageControl Usage](https://packagecontrol.io/docs/usage).)
 
 ### Satisfy dependencies
-As the plugin relies on TerminalView as the terminal emulator and sole dependency, it might be neccessary to run PackageControl: Satisfy dependencies after installing ShellVE.
+As the plugin relies on TerminalView as the terminal emulator and sole dependency. Hence you need to install TerminalView before you can use ShellVE.
 
 ## Usage
 ### 1. Make sure virtual environment path is included into your .sublime-project:
@@ -48,4 +48,4 @@ Linux: <kbd>ctrl</kbd> + <kbd>super</kbd> + <kbd>v</kbd>
 - Ensure environment variables are always the same, irrespective if a virtual environment is started in the system terminal or ShellVE.
 
 ## Contributors
-- A big ThankYou to [Wramberg](https://github.com/Wramberg/TerminalView) for providing the amazing TerminalView plugin.
+- A big ThankYou to [Wramberg](https://github.com/Wramberg/TerminalView) for providing the amazing TerminalView plugin!
