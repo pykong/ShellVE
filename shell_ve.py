@@ -10,6 +10,22 @@ PLUGIN_NAME = 'AutoTerminal'
 SHELL_TITLE = "TERMINAL"
 SHELL_CMD = "terminal_view_open"
 
+
+def plugin_loaded():
+    """ Checking whether TerminalView is installed.
+    Else give out status bar message. """
+    s = sublime.load_settings('Package Control.sublime-settings')
+    installed = s.get("installed_packages")
+    if "TerminalView" not in installed:
+        msg = "ShellVE: TerminalView not found. Please install."
+        print(msg)
+        window = sublime.active_window()
+        view = window.active_view()
+        view.window().status_message(msg)
+    else:
+        print("ShellVE: TerminalView found")
+
+
 def open_shell(view=None, wnd_ids = set()):
     """ """
 
