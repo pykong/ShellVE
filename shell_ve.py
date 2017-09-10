@@ -1,32 +1,13 @@
 import sublime
 import sublime_plugin
-import json
 
-# Terminal Python Project Sublime Shell Virtual Environment open
-# ShellVE
-
-PLUGIN_NAME = 'AutoTerminal'
+PLUGIN_NAME = 'ShellVE'
 
 SHELL_TITLE = "TERMINAL"
 SHELL_CMD = "terminal_view_open"
 
 
-def plugin_loaded():
-    """ Checking whether TerminalView is installed.
-    Else give out status bar message. """
-    s = sublime.load_settings('Package Control.sublime-settings')
-    installed = s.get("installed_packages")
-    if "TerminalView" not in installed:
-        msg = "ShellVE: TerminalView not found. Please install."
-        print(msg)
-        window = sublime.active_window()
-        view = window.active_view()
-        view.window().status_message(msg)
-    else:
-        print("ShellVE: TerminalView found")
-
-
-def open_shell(view=None, wnd_ids = set()):
+def open_shell(view=None, wnd_ids=set()):
     """ """
 
     if not view:
@@ -58,9 +39,7 @@ def open_shell(view=None, wnd_ids = set()):
     else:
         ve_activate = ve_python.rstrip("python") + "activate"
 
-    terminals = [v for v
-                 in window.views()
-                 if v.name() == SHELL_TITLE]
+    terminals = [v for v in window.views() if v.name() == SHELL_TITLE]
 
     if terminals:  # we are not opening another terminal
         return
@@ -88,10 +67,21 @@ class Listener(sublime_plugin.EventListener):
         open_shell()
 
 
-
 def plugin_loaded():
-    """this is run at sublime text startup"""
-    Listener()()
+    """ Checking whether TerminalView is installed.
+    If not give out status bar message.
+    Else start terminal pane. """
+    s = sublime.load_settings('Package Control.sublime-settings')
+    installed = s.get("installed_packages")
+    if "TerminalView" not in installed:
+        msg = "ShellVE: TerminalView not found. Please install."
+        print(msg)
+        window = sublime.active_window()
+        view = window.active_view()
+        view.window().status_message(msg)
+    else:
+        print("ShellVE: TerminalView found")
+        Listener()()
 
 
 class OpenShellVeCommand(sublime_plugin.WindowCommand):
