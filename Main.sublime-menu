@@ -1,0 +1,33 @@
+
+[
+  {
+    "caption": "Preferences",
+    "id": "preferences",
+    "mnemonic": "n",
+    "children":
+    [
+      {
+        "caption": "Package Settings",
+        "id": "package-settings",
+        "mnemonic": "P",
+        "children":
+        [
+          {
+            "caption": "ShellVE",
+            "children":
+            [
+              {
+                "caption": "Key Bindings",
+                "command": "edit_settings",
+                "args": {
+                  "base_file": "${packages}/ShellVE/Default ($platform).sublime-keymap",
+                  "default": "// Settings in here override those in \"ShellVE/Default.sublime-settings\",\n\n{\n\t$0\n}\n"
+                }                                
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
