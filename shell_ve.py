@@ -1,5 +1,6 @@
 import sublime
 import sublime_plugin
+import sys
 
 PLUGIN_NAME = 'ShellVE'
 
@@ -71,9 +72,8 @@ def plugin_loaded():
     """ Checking whether TerminalView is installed.
     If not give out status bar message.
     Else start terminal pane. """
-    s = sublime.load_settings('Package Control.sublime-settings')
-    installed = s.get("installed_packages")
-    if "TerminalView" not in installed:
+    
+    if "TerminalView" not in sys.modules:
         msg = "ShellVE: TerminalView not found. Please install."
         print(msg)
         window = sublime.active_window()
